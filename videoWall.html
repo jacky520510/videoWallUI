@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>VideoWall</title>
+    <script src="videoWallUI.js"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            //参数：存放视频墙的容器ID，初始化分屏数量，初始化显示的状态栏（0：直播 1：回放），点击操作图标后的回调函数，拉动滑杆的回调函数
+            VideoWallUI.Init("videoWallContainer", 4, 1,IconClick,sliderChange);
+        }
+
+        window.onresize = function() {
+            VideoWallUI.LayoutResize();
+        }
+
+        function IconClick(paSelectedScreen, paPTS) {
+            console.log(paSelectedScreen, paPTS)
+        }
+
+        function sliderChange(paSelectedScreen, paValue) {
+            console.log(paSelectedScreen, paValue);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="videoWallContainer" style="width:1000px;height:600px;"></div>
+</body>
+
+</html>
